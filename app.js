@@ -6,6 +6,16 @@ app.listen(port, () => {
   console.log('Para derrubar o servidor: ctrl + c');
 })
 
+
 app.get('/', function (req, res) {
-    res.send('Pagina teste pedro');
+  var fs = require('fs');
+  const texto = fs.readFile('./vavpvbrsvz/qvnevb.txt', function (err, data) {
+    if (err) {
+      console.error("Could not open file: %s", err);
+      process.exit(1);
+    }
+    res.send(data.toString('utf8'));
   });
+
+  
+});
